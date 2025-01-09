@@ -1,0 +1,16 @@
+artifact title: A-199530
+
+description:
+  when a photo is taken with artifact in frame,
+  photo is distorted and contains what looks like a
+  barcode, left to right, top to bottom. however,
+  it is not a standard barcode and appears to encode
+  a long stream of bits, either being negative or
+  positive. additionally, the message appears to be
+  some type of audio.
+
+additional notes from lab:
+  ABCD = [1, 0, 1, -1
+          1, 1, 1, -2
+          0, 1, 0,  0]
+  order = 2

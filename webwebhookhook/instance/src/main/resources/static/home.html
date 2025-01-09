@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebWebHookHook</title>
+    </head>
+    <body>
+        <form id="create">
+            <label for="hook">webhook: </label><input type="text" name="hook" id="hook" placeholder="https://example.com/webhook"><br>
+            <label for="template">webtemplate: </label><input type="text" name="template" id="template" placeholder='{"body":_DATA_,"name":"user"}'><br>
+            <label for="response">webresponse: </label><input type="text" name="response" id="response" placeholder='{"result": "ok"}'>
+        </form>
+        <br>
+        <button id="submit">Submit</button>
+        <br>
+        <pre id="output">
+
+        </pre>
+    </body>
+    <footer>
+        <script>
+            const form = document.getElementById("create");
+            const output = document.getElementById("output");
+            const button = document.getElementById("submit");
+            button.onclick = async function() {
+                let f = new FormData(form);
+                const resp = await fetch("/create", {"method": "POST", "body": JSON.stringify(Object.fromEntries(f)), "headers": {"Content-Type": "application/json"}});
+                const j = await resp.json();
+                if(j["result"] === "ok") {
+                    output.textContent += `Your webhook is available at: /webhook?hook=${encodeURIComponent(f.get("hook"))}\n`
+                } else {
+                    output.textContent += "Invalid hook URL or already exists...\n"
+                }
+            }
+        </script>
+    </footer>
+</html>

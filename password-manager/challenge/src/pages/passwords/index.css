@@ -1,0 +1,16 @@
+/* Dark mode detection */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: #fff;
+    }
+}
+
+/* Password blur */
+.password {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+.password:hover {
+    filter: none;
+}

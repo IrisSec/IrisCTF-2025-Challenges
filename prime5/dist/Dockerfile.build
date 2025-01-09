@@ -1,0 +1,8 @@
+FROM ghcr.io/gem5/ubuntu-24.04_all-dependencies:v24-0
+
+RUN apt-get update && apt-get install -y clang lld
+RUN git clone https://github.com/gem5/gem5
+COPY challenge.patch /gem5
+RUN cd gem5 && git apply challenge.patch
+
+CMD ["sh", "-c", "cd gem5 && env CLANG=1 scons build/X86/gem5.opt --linker=lld -j `nproc`"]

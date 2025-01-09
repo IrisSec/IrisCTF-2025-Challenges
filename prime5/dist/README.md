@@ -1,0 +1,1 @@
+Use the provided Makefile in the challenge binary to compile a solve binary; and use the Dockerfile to run the challenge (a prebuilt gem5 binary is provided, or you can compile from source using the patch and build.sh).

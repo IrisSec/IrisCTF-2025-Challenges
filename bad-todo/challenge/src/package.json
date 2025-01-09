@@ -1,0 +1,21 @@
+{
+  "name": "bad-todo",
+  "version": "1.0.0",
+  "description": "A To-Do list app with OIDC login!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Extreme Technology",
+  "license": "MIT",
+  "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "ipaddr.js": "^2.2.0"
+  },
+  "type": "module"
+}

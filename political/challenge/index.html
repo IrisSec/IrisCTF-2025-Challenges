@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Political</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h2>Give Me Flag</h2>
+    <div id="token-view">Getting you a token...</div>
+    <form action="/redeem" method="POST">
+        <input type="text" value="" name="token" id="token">
+        <input type="submit" value="Redeem">
+    </form>
+    <script>
+        async function go() {
+            let t = await fetch("/token");
+            t = await t.text();
+            document.getElementById("token-view").innerText = `Your Token: ${t}`;
+            document.getElementById("token").value = t;
+        }
+        go();
+    </script>
+  </body>
+</html>

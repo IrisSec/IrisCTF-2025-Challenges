@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadToDo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        td form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, <%= name %></h1>
+    <h2>Your things to do</h2>
+    <form method="POST" action="/add">
+        <label>New item label <input type="text" name="todo_name" maxlength="256"></label>
+        <input type="submit" value="Add new">
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Text</th>
+            <th>Action</th>
+        </tr>
+        <% for (let todo of todos) { %>
+            <% if (!todo.done) { %>
+                <tr>
+                    <td><%= todo.rowid %></td>
+                    <td><%= todo.text %></td>
+                    <td>
+                        <form method="POST" action="/done">
+                            <input type="hidden" name="todo_id" value="<%= todo.rowid %>">
+                            <input type="submit" value="Mark as done">
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
+    <h2>Your done things</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Text</th>
+            <th>Action</th>
+        </tr>
+        <% for (let todo of todos) { %>
+            <% if (todo.done) { %>
+                <tr>
+                    <td><%= todo.rowid %></td>
+                    <td><%= todo.text %></td>
+                    <td>
+                        <form method="POST" action="/delete">
+                            <input type="hidden" name="todo_id" value="<%= todo.rowid %>">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
+</body>
+</html>

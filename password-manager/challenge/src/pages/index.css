@@ -1,0 +1,7 @@
+/* Dark mode detection */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: #fff;
+    }
+}

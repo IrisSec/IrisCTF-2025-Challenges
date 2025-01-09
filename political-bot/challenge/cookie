@@ -1,0 +1,9 @@
+{
+  "name": "admin",
+  "value": "7f2d9ba0a67a25ec76d9dbf66f1e79a0",
+  "domain": "political-web.chal.irisc.tf",
+  "url": "https://political-web.chal.irisc.tf/",
+  "path": "/",
+  "httpOnly": true,
+  "secure": true
+}

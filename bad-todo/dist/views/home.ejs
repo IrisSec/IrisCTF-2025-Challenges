@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadToDo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to BadToDo. To continue, please log in.</h1>
+
+    <form action="/start" method="POST">
+        <label>Issuer URL <i>without</i> <code>/.well-known/openid-configuration</code> <input type="text" name="issuer"></label><br/>
+        <label>Client ID to use <input type="text" name="client_id"></label><br/>
+        <input type="submit" value="Log in">
+    </form>
+    <hr>
+    <h3>Configuring your identity provider</h3>
+    <p>We use a Public Client Flow (no client secret) with the authorization code grant type.</p>
+    <p>Set <code><%= base %>/auth_redirect</code> as a permitted redirect URI.</p>
+</body>
+</html>
